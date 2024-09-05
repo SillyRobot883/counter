@@ -13,6 +13,11 @@ let count = 0;
 
 // the updateMessage function will display a message based on the current count
 function updateMessage() {
+    if (count < 0) {
+        document.body.classList.add('negative-count');
+    } else {
+        document.body.classList.remove('negative-count');
+    }
     switch (count) {
         case -15:
             showSlidingMessage("Why would you go negative? lol");
@@ -32,16 +37,20 @@ function updateMessage() {
             break;
         case 50:
             alertSound.play();
-            showSlidingMessage("You're still going huh?");
+            showSlidingMessage("Still going huh?");
             break;
         case 75:
             alertSound.play();
-            showSlidingMessage("Alright stop. I'm disabling the buttons now.");
+            showSlidingMessage("Alright stop. I'm disabling the buttons for 10 seconds");
             disableIncreaseButton(10);
+            break;
+        case 99:
+            showSlidingMessage("Disabling buttons forever. You will never reach 100!")
+            disableAllButtons();
             break;
         case 100:
             alertSound.play();
-            showSlidingMessage("You're unbelievable! You've reached 100! 🏆");
+            showSlidingMessage("You're a web wizard! You've reached 100! 🏆");
             break;
         case 105:
             alertSound.play();
@@ -52,6 +61,7 @@ function updateMessage() {
     }
 }
 
+
 // the showSlidingMessage function will display a message that slides in from the top
 function showSlidingMessage(text) {
     const messageElement = document.createElement('div');
@@ -60,15 +70,19 @@ function showSlidingMessage(text) {
     slidingMessagesContainer.appendChild(messageElement);
     setTimeout(() => {
         messageElement.classList.add('show');
-    }, 100);
+    }, 500);
     setTimeout(() => {
         messageElement.classList.remove('show');
         setTimeout(() => {
             slidingMessagesContainer.removeChild(messageElement);
         }, 400);
-    }, 3000);
+    }, 4000);
 }
 
+function disableAllButtons() {
+    increase.disabled = true;
+    decrease.disabled = true;
+}
 
 function disableIncreaseButton(seconds) {
     increase.disabled = true;

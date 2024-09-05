@@ -124,3 +124,8 @@ button:hover {
     overflow: hidden;
     z-index: 9999;
 }
+
+body.negative-count {
+    transition: background-color 0.5s ease-in-out;
+    background-color: #cda14c; /* Example color */
+}
