@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fun Counter</title>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+<div id="darkModeContainer">
+    <input type="checkbox" id="darkModeToggle" hidden/>
+    <label for="darkModeToggle" class="toggle-switch"></label>
+</div>
 <label id="countLabel">0</label><br>
 <div id="buttonContainer">
     <button id="incrementButton">Increment</button>
@@ -20,8 +25,11 @@
     <label id="messageLabel"></label>
 </div>
 <div id="slidingMessagesContainer"></div>
-<audio id="alertSound" src="alert.mp3"></audio>
-<audio id="discordSound" src="discord.mp3"></audio>
+<div id="confettiContainer"></div>
+<audio id="clickSound" src="assets/click.mp3"></audio>
+<audio id="alertSound" src="assets/alert.mp3"></audio>
+<audio id="discordSound" src="assets/discord.mp3"></audio>
+<audio id="resetSound" src="assets/reset.mp3"></audio>
 <script src="app.js"></script>
 </body>
 </html>
