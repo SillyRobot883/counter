@@ -147,3 +147,33 @@ body.negative-count {
     transform: none; /* Remove button-like hover effect */
     box-shadow: none; /* Remove button-like hover effect */
 }
+
+#countContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#countContainer button {
+    font-size: 2em;
+    width: 60px;
+    height: 60px;
+    margin: 30px; /* Increase margin to add space between buttons and counter */
+    background: linear-gradient(135deg, #ff4081, #ff80ab);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the symbols */
+}
+
+#countContainer button:hover {
+    background: linear-gradient(135deg, #ff80ab, #ff4081);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
