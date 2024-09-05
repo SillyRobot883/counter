@@ -10,6 +10,7 @@ const resetSound = document.getElementById('resetSound');
 const slidingMessagesContainer = document.getElementById('slidingMessagesContainer');
 const confettiContainer = document.getElementById('confettiContainer');
 let count = 0;
+let countRecord = 0;
 
 // the updateMessage function will display a message based on the current count
 function updateMessage() {
@@ -18,6 +19,11 @@ function updateMessage() {
     } else {
         document.body.classList.remove('negative-count');
     }
+    if (count > countRecord) {
+        countRecord = count;
+        countRecordLabel.textContent = `Record: ${countRecord}`; // Update the count record display
+    }
+
     switch (count) {
         case -15:
             showSlidingMessage("Why would you go negative? lol");
@@ -36,11 +42,9 @@ function updateMessage() {
             showSlidingMessage("Incredible! You've reached 35! 🚀");
             break;
         case 50:
-            alertSound.play();
             showSlidingMessage("Still going huh?");
             break;
         case 75:
-            alertSound.play();
             showSlidingMessage("Alright stop. I'm disabling the buttons for 10 seconds");
             disableIncreaseButton(10);
             break;
@@ -70,7 +74,7 @@ function showSlidingMessage(text) {
     slidingMessagesContainer.appendChild(messageElement);
     setTimeout(() => {
         messageElement.classList.add('show');
-    }, 500);
+    }, 1);
     setTimeout(() => {
         messageElement.classList.remove('show');
         setTimeout(() => {
